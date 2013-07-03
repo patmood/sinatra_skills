@@ -1,5 +1,7 @@
 class Skill < ActiveRecord::Base
   VALID_CONTEXTS = %w(technical creative)
+  has_many :abilities
+  has_many :users, through: :abilities
 
   validates :name, :presence => true
   validate :validate_context
